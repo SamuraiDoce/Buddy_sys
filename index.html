@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Buddy | Gerenciador de Clientes</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="ph-fill ph-circles-three-plus"></i>
+                <span>CRM Buddy</span>
+            </div>
+            <nav>
+                <button class="nav-item active" id="nav-all">
+                    <i class="ph ph-users"></i>
+                    Todos os Clientes
+                </button>
+                <button class="nav-item" id="nav-negotiation">
+                    <i class="ph ph-handshake"></i>
+                    Em Negociação
+                </button>
+                <button class="nav-item" id="nav-sold">
+                    <i class="ph ph-check-circle"></i>
+                    Vendidos
+                </button>
+                <button class="nav-item" id="nav-cancelled">
+                    <i class="ph ph-x-circle"></i>
+                    Cancelados
+                </button>
+                <button class="nav-item" id="nav-no-status">
+                    <i class="ph ph-circle-dashed"></i>
+                    Sem Status
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <p>&copy; 2024 CRM Buddy</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-container">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" id="search-input" placeholder="Buscar clientes por nome, local...">
+                </div>
+                <button class="btn btn-secondary" id="export-btn">
+                    <i class="ph ph-download-simple"></i>
+                    Exportar JSON
+                </button>
+                <button class="btn btn-primary" id="add-client-btn">
+                    <i class="ph ph-plus"></i>
+                    Novo Cliente
+                </button>
+            </header>
+
+            <section class="content-header">
+                <div>
+                    <h1 id="view-title">Todos os Clientes</h1>
+                    <p id="client-count">Carregando clientes...</p>
+                </div>
+                <div class="view-controls">
+                    <!-- Future feature: Grid/List toggle -->
+                </div>
+            </section>
+
+            <section class="clients-grid" id="clients-grid">
+                <!-- Clients will be injected here -->
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Carregando seus clientes...</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Form -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modal-title">Cadastrar Novo Cliente</h2>
+                <button class="modal-close" id="modal-close"><i class="ph ph-x"></i></button>
+            </div>
+            <form id="client-form" class="client-form">
+                <input type="hidden" id="client-id">
+                <div class="form-group">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" id="name" placeholder="Ex: João Silva" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp</label>
+                        <input type="tel" id="whatsapp" placeholder="Ex: 11999999999" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="Ex: joao@email.com">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="location">Localização / Cidade</label>
+                        <input type="text" id="location" placeholder="Ex: São Paulo, SP">
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select id="status" required>
+                            <option value="Em Negociação">Em Negociação</option>
+                            <option value="Vendido">Vendido</option>
+                            <option value="Cancelado">Cancelado</option>
+                            <option value="Finalizado">Finalizado</option>
+                            <option value="Sem Status">Sem Status</option>
+                            <option value="Aguardando">Aguardando</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancel-btn">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar Cliente</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
