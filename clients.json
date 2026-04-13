@@ -1,0 +1,65 @@
+[
+  {
+    "id": "1776099282663",
+    "name": "Padaria Santa Helena",
+    "whatsapp": "1147462125",
+    "email": "",
+    "location": "Suzano - SP",
+    "status": "Sem Status",
+    "createdAt": "2026-04-13T16:54:42.663Z"
+  },
+  {
+    "id": "1776099255351",
+    "name": "Gravetos - Restaurante",
+    "whatsapp": "1147444459",
+    "email": "",
+    "location": "Suzano - SP",
+    "status": "Sem Status",
+    "createdAt": "2026-04-13T16:54:15.351Z"
+  },
+  {
+    "id": "1776099175734",
+    "name": "Fetal in Brasa",
+    "whatsapp": "21968491487",
+    "email": "",
+    "location": "Caxias do Sul - RJ",
+    "status": "Sem Status",
+    "createdAt": "2026-04-13T16:53:17.726Z"
+  },
+  {
+    "id": "1776099123502",
+    "name": "Luciano Lanches",
+    "whatsapp": "21968491487",
+    "email": "",
+    "location": "Caxias do Sul - RJ",
+    "status": "Cancelado",
+    "createdAt": "2026-04-13T16:52:03.502Z"
+  },
+  {
+    "id": "1776099081518",
+    "name": "Cachorro Quente do Russo - Duque de Caxias",
+    "whatsapp": "21969213360",
+    "email": "",
+    "location": "Caxias do Sul - RJ",
+    "status": "Cancelado",
+    "createdAt": "2026-04-13T16:51:21.518Z"
+  },
+  {
+    "id": "1776099042734",
+    "name": "Altas horas lanchonete com Delivery",
+    "whatsapp": "11958111600",
+    "email": "",
+    "location": "",
+    "status": "Cancelado",
+    "createdAt": "2026-04-13T16:50:42.734Z"
+  },
+  {
+    "id": "1776099017231",
+    "name": "Lanchonete Nova Recante ",
+    "whatsapp": "11984166930",
+    "email": "",
+    "location": "",
+    "status": "Cancelado",
+    "createdAt": "2026-04-13T16:50:17.231Z"
+  }
+]

@@ -16,7 +16,8 @@ class CRMApp {
         this.clientCount = document.getElementById('client-count');
         this.searchInput = document.getElementById('search-input');
         this.navItems = document.querySelectorAll('.nav-item');
-        this.exportBtn = document.getElementById('export-btn');
+        this.exportJsonBtn = document.getElementById('export-json-btn');
+        this.exportTxtBtn = document.getElementById('export-txt-btn');
         
         this.init();
     }
@@ -28,7 +29,8 @@ class CRMApp {
         this.cancelBtn.addEventListener('click', () => this.closeModal());
         this.clientForm.addEventListener('submit', (e) => this.handleFormSubmit(e));
         this.searchInput.addEventListener('input', (e) => this.handleSearch(e));
-        this.exportBtn.addEventListener('click', () => this.exportClients());
+        this.exportJsonBtn.addEventListener('click', () => this.exportJSON());
+        this.exportTxtBtn.addEventListener('click', () => this.exportTXT());
         
         this.navItems.forEach(item => {
             item.addEventListener('click', () => this.handleFilter(item));
@@ -134,7 +136,7 @@ class CRMApp {
         localStorage.setItem('crm-clients', JSON.stringify(this.clients));
     }
 
-    exportClients() {
+    exportJSON() {
         if (this.clients.length === 0) {
             alert('Não há clientes para exportar.');
             return;
@@ -145,6 +147,33 @@ class CRMApp {
         const link = document.createElement('a');
         link.href = url;
         link.download = `clientes_crm_${new Date().toISOString().split('T')[0]}.json`;
+        link.click();
+        URL.revokeObjectURL(url);
+    }
+
+    exportTXT() {
+        if (this.clients.length === 0) {
+            alert('Não há clientes para exportar.');
+            return;
+        }
+        let content = "RELATÓRIO DE CLIENTES - CRM BUDDY\n";
+        content += "==================================\n\n";
+        
+        this.clients.forEach((client, index) => {
+            content += `CLIENTE #${index + 1}\n`;
+            content += `Nome: ${client.name}\n`;
+            content += `WhatsApp: ${client.whatsapp}\n`;
+            content += `E-mail: ${client.email || 'Não informado'}\n`;
+            content += `Localização: ${client.location || 'Não informado'}\n`;
+            content += `Status: ${client.status}\n`;
+            content += `----------------------------------\n`;
+        });
+
+        const blob = new Blob([content], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `clientes_crm_${new Date().toISOString().split('T')[0]}.txt`;
         link.click();
         URL.revokeObjectURL(url);
     }

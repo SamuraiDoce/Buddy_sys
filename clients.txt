@@ -1,0 +1,10 @@
+RELATÓRIO DE CLIENTES - CRM BUDDY
+==================================
+
+CLIENTE #1
+Nome: Cliente Exemplo
+WhatsApp: 5511999999999
+E-mail: exemplo@email.com
+Localização: São Paulo, SP
+Status: Em Negociação
+----------------------------------
